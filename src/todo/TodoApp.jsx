@@ -39,7 +39,7 @@ export default function TodoApp() {
 
   return (
     <div className="todo-container">
-      <h2>📝 Todo App</h2>
+      <h2>📝 Todo App for CI/CD</h2>
 
       <div className="input-row">
         <input
