@@ -40,6 +40,7 @@ export default function TodoApp() {
   return (
     <div className="todo-container">
       <h2>📝 Todo App for CI/CD by chitro</h2>
+      <h3>Welcome to the Dashboard</h3>
 
       <div className="input-row">
         <input
