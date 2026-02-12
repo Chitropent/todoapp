@@ -1,6 +1,6 @@
 {
   "name": "todoapp",
-  "homepage":"https://Chitropent.github.io/todoapp",
+  "homepage": "/todoapp/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
