@@ -1,0 +1,40 @@
+name: Deploy React App to GCP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy to VM via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd ~
+
+            if [ ! -d "react-app" ]; then
+              git clone https://github.com/Chitropent/todoapp.git react-app
+            fi
+
+            cd react-app
+            git pull origin main
+
+            docker stop react-container || true
+            docker rm react-container || true
+
+            docker build --no-cache -t react-app .
+
+            docker run -d -p 80:80 \
+              --name react-container \
+              --restart always \
+              react-app
