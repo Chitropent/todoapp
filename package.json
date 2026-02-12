@@ -1,6 +1,6 @@
 {
   "name": "todoapp",
-  "homepage": "/todoapp/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
